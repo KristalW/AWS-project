@@ -1,0 +1,53 @@
+a. Full Name: Jianing Wang
+b. Student ID: 6804739453
+c. What you have done in the assignment: I learned the application of the socket and read the materials about how to make the sockets (like bind, accept and connect) in Beej programming instructions. Firstl, I organized all the connection between servers and clients. Then, coding and debug. Because I planned well before I began to write the codes, the process of coding was smooth going. 
+d. What your code files are and what each one of them does.
+	myAWS.cpp:responsible for the connection between servers and clients. Receiving the input from the client and relaying the input to the Backend ServerA&B, then receiving the details from Backend Server and relaying those to Backend ServerC. Receiving the outputs from 	Backend ServerC and relaying the outputs to client and monitor.
+	myServerA.cpp:responsible for searching the input in database_a.csv file and send the detail back to AWS.
+	myServerB.cpp:responsible for searching the input in database_b.csv file and send the detail back to AWS.
+	myServerC.cpp:responsible for computing the details received from AWS and send the outputs back to AWS.
+	myMonitor.cpp:responsible for receiving the outputs from the AWS and show.
+	myClient.cpp:responsible for getting the input and sending them to AWS and receiving the delay output from AWS
+e. The format of all the message exchanged. Code is written in c++ program.
+	Backend-ServerA Terminal:
+	The Server A is up and running using UDP on port <21453>.
+	The Server A received input <118>.
+	The Server A has found <0> match.
+	The Server A finished sending the output to AWS.
+	Backend-ServerB Terminal:
+	The Server B is up and running using UDP on port <22453>.
+	The Server B received input <8>.
+	The Server B has found <0> match.
+	The Server B finished sending the output to AWS.
+	Backend-ServerC Terminal:
+	The server C is up and running using UDP on port <23453>.
+	The Server C received link information of link <8>, file size <30000.00>, and signal power <-30.00>.
+	The Server C finished the calculation for link <8>.
+	The Server C finished sending the output to AWS.
+	AWS Terminal:
+	The AWS is up and running
+	The AWS received link ID=<9>,size=<34.00>,and power=<1.00> from the client using TCP over port <25453>
+	The AWS send link ID=<9>,size=<34.00>,and power=<1.00> to the monitor using TCP over port <26453>
+	The AWS sent link ID=<9> to Backend-Server <A> using UDP  over port <21453>
+	The AWS received <0> matches from Backend-Server <A> using UDP over port <21453>
+	The AWS sent link ID=<9> to Backend-Server <B> using UDP  over port <22453>
+	The AWS received <1> matches from Backend-Server <B> using UDP over port <22453>
+	The AWS sent link ID=<9>,size=<34.00>,power=<1.00>, and link information to Backend-Server C using UDP over port <23453>
+	The AWS received outputs from Backend-Server C using UDP over port <23453>
+	The AWS sent delay=<0.03>ms to the client using TCP over port <25453>
+	The AWS sent detailed results to the monitor using TCP over port <26453>
+	Client Terminal:
+	The client is up and running
+	The​ ​client​ ​sent​ ​ID=<9>​, size=<34.00>, ​and​ power=<-20.00> ​to​ ​AWS
+	The delay for link <9> is <0.03>ms
+	Found no matches for link <3333>
+	Monitor Terminal:
+	The monitor received link ID=<9>, size=<34.00>, and power=<1.00> from the AWS
+	The result for link <9>:
+ 	Tt=<0.00>ms,
+ 	Tp=<0.03>ms,
+ 	Delay=<0.03>ms
+	Found no matches for link <3333>
+
+g. Any idiosyncrasy of your project. No
+h. Reused Code: Did you use code from anywhere for your project? No.
